@@ -135,9 +135,6 @@ addbtnIcon.addEventListener('click',()=>{
                             taskStoreP.removeChild(cancelTask);
                         })
                     }
-                    
-
-
                 });
             });
             //Remove Task:
