@@ -32,6 +32,7 @@ addbtnIcon.addEventListener('click',()=>{
     removeEle.addEventListener('click',()=>{
         sloting.removeChild(popbox);
         wrapper.style.filter = 'none';
+        
     });
 
     addEle.addEventListener('click',()=>{

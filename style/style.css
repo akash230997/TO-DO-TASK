@@ -18,15 +18,47 @@ body{
         background-size: 150%;
     }
 }
-.fa-sticky-note{
-    color: yellow;
+.fa-evernote{
+    /* color: rgba(0, 0, 255, 0.705); */
+    color: yellowgreen;
+    text-shadow: rgba(153, 0, 255, 1) 0px 0px 277px;
+    animation: note 8s ease-in-out 0s infinite normal forwards;
 }
-.fa-sticky-note:hover{
-    color: orangered;
+@keyframes note {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: translateX(10px);
+    }
+
+    80% {
+        transform: translateX(8px);
+    }
+
+    90% {
+        transform: translateX(-8px);
+    }
+}
+.fa-evernote:hover{
+    color: white;
 }
 .list{
     font-weight: lighter;
-    font-size: 2rem;
+    font-size: 3rem;
+    text-shadow: rgba(153, 0, 255, 0.9) 0px 0px 33px;
 }
 #heading{
     color: white;
@@ -43,7 +75,7 @@ body{
     z-index: 15;
 }
 .fa-plus-circle:hover {
-    color: orangered;
+    color: rgba(0, 0, 255, 0.454);
 }
 .adI{
     /* border: 1px solid white; */
@@ -81,6 +113,16 @@ filter: blur(5px);
     position: absolute;
     top: 250px;
     z-index: 10;
+    animation: popup 1s ease 0s 1 normal forwards;
+}
+@keyframes popup {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 .popEle h2{
     margin-top: 0%;
@@ -136,6 +178,7 @@ filter: blur(5px);
     background-color: #D9AFD9;
     background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
 }
+
 #Task{
     display: flex;
     flex-wrap: wrap;
