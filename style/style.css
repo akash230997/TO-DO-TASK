@@ -1,7 +1,7 @@
 body{
     background-color: black;
     color: aliceblue;
-    background: url(./images/img4.jpg);
+    background: url(../images/img4.jpg);
     background-repeat: no-repeat;
     background-size:cover;
     /* background-position: center center; */
