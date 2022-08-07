@@ -1,7 +1,7 @@
 console.log('Working!!');
 
 let addbtnIcon = document.getElementById('addbtnIcon');
-let slot = document.getElementById('slot');
+// let slot = document.getElementById('slot');
 let head = document.getElementById('heading');
 
 
@@ -24,8 +24,7 @@ addbtnIcon.addEventListener('click',()=>{
     let sloting = document.querySelector('#slot');
     sloting.append(popbox);
     popbox.append(h2heading, inputValues, addEle, removeEle);
-    console.log(addEle);
-    console.log(removeEle);
+
     let wrapper = document.querySelector('#wrapper');
     wrapper.style.filter = 'blur(5px)';
     
@@ -38,14 +37,17 @@ addbtnIcon.addEventListener('click',()=>{
     addEle.addEventListener('click',()=>{
         //Input VALUE :
         let valueinp = inputValues.value;
-        console.log(valueinp);
+
         sloting.removeChild(popbox);
         wrapper.style.filter = 'none';
+
+        let noItemTag = document.querySelector("#noItemTag");
+        noItemTag.innerHTML = "";
 
 
         if (valueinp =="") {
             alert('Please Enter Your Task!!')
-        } else {
+        }else {
             let TaskList = document.createElement('div');
             let h3heading = document.createElement('h3');
             let hr = document.createElement('hr');
@@ -63,12 +65,10 @@ addbtnIcon.addEventListener('click',()=>{
 
 
             let Task = document.getElementById('Task');
+
             Task.appendChild(TaskList);
-
             TaskList.append(MidBlock);
-
             TaskList.append(footerList);
-            console.log(TaskList);
 
             let trash = document.createElement('span');
             // add.classList.add('footAdd')
@@ -137,14 +137,52 @@ addbtnIcon.addEventListener('click',()=>{
                     }
                 });
             });
-            //Remove Task:
+            //Remove Task: FOOTER
             trash.addEventListener('click',()=>{
                 let Task = document.querySelector('#Task');
                 Task.removeChild(TaskList);
                 // TaskList.innerHTML ="";
             });
-            // h2heading
-            // h2heading.
+            // PAGE 2 
+            h3heading.addEventListener('click',()=>{
+                wrapper.style.visibility ='hidden';
+                page2.style.visibility='visible';
+                // page2.innerText ='HelloWorld!!';
+                addbtnIcon.style.visibility = 'visible';
+                let p2Container = document.createElement('div');
+                p2Container.classList.add('p2Container')
+                page2.appendChild(p2Container);
+                let backbtn = document.createElement('span');
+                backbtn.classList.add('backbtn')
+                backbtn.innerHTML = '<i class="fas fa-arrow-circle-left"></i> BACK';
+                p2Container.appendChild(backbtn);
+                let headingp2 = document.createElement('h1');
+                headingp2.classList.add('headingp2');
+                headingp2.innerText = valueinp;
+                p2Container.append(headingp2);
+                
+                p2Container.append(TaskList);
+                TaskList.classList.add('page2LayOut')
+                // CALLING BACK TO MAINPAGE
+                backbtn.addEventListener('click',()=>{
+                    p2Container.removeChild(backbtn, headingp2, TaskList)
+                    page2.style.visibility ='hidden';
+                    wrapper.style.visibility = 'visible';
+                    p2Container.remove(TaskList);
+
+                    TaskList.classList.remove('page2LayOut')
+                    Task.append(TaskList)
+                });
+                trash.addEventListener('click',()=>{
+                    p2Container.removeChild(backbtn, headingp2, TaskList)
+                    page2.style.visibility = 'hidden';
+                    wrapper.style.visibility = 'visible';
+                    p2Container.remove(TaskList);
+
+                    TaskList.classList.remove('page2LayOut')
+                })
+            })
+            
         }
     });
 });
